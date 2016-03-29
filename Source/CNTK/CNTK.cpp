@@ -189,12 +189,12 @@ void DoCommands(const ConfigParameters& config, const shared_ptr<MPIWrapper>& mp
                 wstring modelPath = commandParams("modelPath");
                 LOGPRINTF(stderr, "CNTKModelPath: %ls\n", modelPath.c_str());
                 size_t maxEpochs = GetMaxEpochs(commandParams);
-                LOGPRINTF(stderr, "CNTKCommandTrainInfo: %s : %zu\n", command[i].c_str(), maxEpochs);
+                LOGPRINTF(stderr, "CNTKCommandTrainInfo: %s : %d\n", command[i].c_str(), (int) maxEpochs);
                 fullTotalMaxEpochs += maxEpochs;
             }
         }
     }
-    LOGPRINTF(stderr, "CNTKCommandTrainInfo: CNTKNoMoreCommands_Total : %zu\n", fullTotalMaxEpochs);
+    LOGPRINTF(stderr, "CNTKCommandTrainInfo: CNTKNoMoreCommands_Total : %d\n", (int) fullTotalMaxEpochs);
 
     // set up progress tracing for compute cluster management
     if (progressTracing && (!mpi || mpi->IsMainNode()))

@@ -17,7 +17,7 @@ namespace Microsoft { namespace MSR { namespace CNTK {
         { \
            std::time_t tt = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()); \
            char mbstr[30]; \
-           if (std::strftime(mbstr, sizeof(mbstr), "%m/%d/%Y %T", std::localtime(&tt))) \
+           if (std::strftime(mbstr, sizeof(mbstr), "%m/%d/%Y %H:%M:%S", std::localtime(&tt))) \
                fprintf(stream, "%s: ", mbstr);  \
         } \
     } while(0)
